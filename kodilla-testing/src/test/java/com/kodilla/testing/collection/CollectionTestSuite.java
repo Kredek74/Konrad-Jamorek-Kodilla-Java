@@ -2,6 +2,7 @@ package com.kodilla.testing.collection;
 
 import org.junit.*;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class CollectionTestSuite {
 
@@ -44,17 +45,16 @@ public class CollectionTestSuite {
     public void testFullList(){
 
         //Given
-        ArrayList<Integer> fullListOfNumber = new ArrayList<Integer>(20);
-        for (int i = 1; i <= 20; i++) {
-            fullListOfNumber.add(i);
-        }
+        ArrayList<Integer> fullListOfNumber = new ArrayList<Integer>();
+        Integer allNumber[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
         //When
-        ArrayList<Integer> resultListOfNumbers = new ArrayList<>(oddNumbersExterminator.exterminate(fullListOfNumber));
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> resultListOfNumbers = exterminator.exterminate(fullListOfNumber);
 
         //Then
-        for (fullListOfNumber : resultListOfNumbers) {
-            Assert.assertTrue(resultListOfNumbers % 2 == 0);
-        }
+        ArrayList<Integer> evenListOfNumbers = new ArrayList<Integer>();
+        Integer oddNumber[] = {2, 4, 6, 8, 10};
+        Assert.assertEquals(evenListOfNumbers,resultListOfNumbers);
     }
 }
