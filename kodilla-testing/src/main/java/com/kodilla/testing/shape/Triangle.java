@@ -7,8 +7,8 @@ public class Triangle implements Shape {
     private double triangleBase;
     private double triangeHeight;
 
-    public Triangle(double triangleSide, double triangeHeight) {
-        this.triangleBase = triangleSide;
+    public Triangle(double triangleBase, double triangeHeight) {
+        this.triangleBase = triangleBase;
         this.triangeHeight = triangeHeight;
     }
 
@@ -22,7 +22,7 @@ public class Triangle implements Shape {
         return (triangleBase * triangeHeight) / 2;
     }
 
-    public double getTriangleSide() {
+    public double getTriangleBase() {
         return triangleBase;
     }
 
@@ -46,6 +46,6 @@ public class Triangle implements Shape {
 
     @Override
     public String toString() {
-        return getShapeName() + " with a base length: " + getTriangleSide() + "; and the height " + getTriangeHeight() +"; " + "whose area is " + getField();
+        return getShapeName() + " (" + triangleBase + ", " + triangeHeight + ")";
     }
 }

@@ -39,6 +39,6 @@ public class Circle implements Shape{
 
     @Override
     public String toString() {
-        return getShapeName() + "with the radius: " + circleRadius + "; " + "whose area is " + getField();
+        return  getShapeName() + " (" + circleRadius + ")";
     }
 }

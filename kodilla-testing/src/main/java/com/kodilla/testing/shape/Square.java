@@ -39,6 +39,6 @@ public class Square<hashCode> implements Shape {
 
     @Override
     public String toString() {
-        return getShapeName() + " with a side length: " + getSquareSide() +"; " + "whose area is " + getField();
+        return getShapeName() + " (" + squareSide + ")";
     }
 }
