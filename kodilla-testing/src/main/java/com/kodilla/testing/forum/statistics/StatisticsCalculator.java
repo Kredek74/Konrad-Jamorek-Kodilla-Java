@@ -40,7 +40,6 @@ public class StatisticsCalculator {
         postsNumber = statistics.postsCount();
         commentsNumber = statistics.commentsCount();
 
-
         if (!statistics.usersNames().isEmpty() && statistics.postsCount() != 0) {
             averageOfPosts = postsNumber / usersNumber;
         } else {

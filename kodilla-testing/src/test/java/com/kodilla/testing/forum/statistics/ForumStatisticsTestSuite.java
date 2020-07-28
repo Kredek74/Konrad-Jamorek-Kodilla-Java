@@ -15,7 +15,7 @@ public class ForumStatisticsTestSuite {
     @Test
     public void testZeroPostCounts() {
         //Given
-        StatisticsCalculator forumStatistic = new StatisticsCalculator();
+        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         Statistics statistics = Mockito.mock(Statistics.class);
         List<String> list = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
@@ -25,10 +25,10 @@ public class ForumStatisticsTestSuite {
         when(statistics.postsCount()).thenReturn(0);
         when(statistics.commentsCount()).thenReturn(100);
         //When
-        forumStatistic.calculateAdvStatistics(statistics);
-        double result1 = forumStatistic.getAverageOfPosts();
-        double result2 = forumStatistic.getAverageOfComments();
-        double result3 = forumStatistic.getCommentsPerPost();
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        double result1 = statisticsCalculator.getAverageOfPosts();
+        double result2 = statisticsCalculator.getAverageOfComments();
+        double result3 = statisticsCalculator.getCommentsPerPost();
         //Then
         Assert.assertEquals(0, result1, 0);
         Assert.assertEquals(1, result2, 0);
