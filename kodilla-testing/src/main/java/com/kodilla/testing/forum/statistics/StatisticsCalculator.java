@@ -61,8 +61,8 @@ public class StatisticsCalculator {
         System.out.println("Users on forum: " + usersNumber);
         System.out.println("Total posts on forum: " + postsNumber);
         System.out.println("Total comments on forum: " + commentsNumber);
-        System.out.println("Posts per User: " + averageOfPosts);
-        System.out.println("Comments per User:" + averageOfComments);
+        System.out.println("Average posts per User: " + averageOfPosts);
+        System.out.println("Average comments per User:" + averageOfComments);
         System.out.println("Comments per Post: " + commentsPerPost);
     }
 }
