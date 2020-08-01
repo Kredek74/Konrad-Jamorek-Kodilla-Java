@@ -11,7 +11,18 @@ import static org.mockito.Mockito.*;
 public class ForumStatisticsTestSuite {
 
     private static int testCounter = 0;
-    final double DELTA = 0.1;
+    final double DELTA = 0.001;
+
+    StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
+    Statistics statistics = mock(Statistics.class);
+
+    private List<String> usersList(int numberOfUsers) {
+        List<String> users = new ArrayList<>();
+        for (int i = 0; i < numberOfUsers; i++) {
+            users.add("user");
+        }
+        return users;
+    }
 
     @BeforeClass
     public static void beforeAllTests() {
@@ -30,141 +41,133 @@ public class ForumStatisticsTestSuite {
     }
     @After
     public void afterEveryTest() {
-        System.out.println("Test its done");
+        System.out.println("Test #" + testCounter + " its done");
     }
 
     @Test
-    public void testPostsCountIsZero() {
+    public void testWhenAllStatisticsAreZero() {
         //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++){
-            list.add(String.valueOf(i));
-        }
-        when(statistics.usersNames()).thenReturn(list);
-        when(statistics.postsCount()).thenReturn(0);
-        when(statistics.commentsCount()).thenReturn(100);
-        //When
-        statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
-        //Then
-        Assert.assertEquals(0.0, result1, DELTA);
-        Assert.assertEquals(1.0, result2, DELTA);
-        Assert.assertEquals(0.0, result3, DELTA);
-    }
-
-    @Test
-    public void testShouldWorkWhenPostsCountIsThousend() {
-        //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(String.valueOf(i));
-        }
-        when(statistics.usersNames()).thenReturn(list);
-        when(statistics.postsCount()).thenReturn(1000);
-        when(statistics.commentsCount()).thenReturn(100);
-        //When
-        statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
-        //Then
-        Assert.assertEquals(10.0, result1, DELTA);
-        Assert.assertEquals(1.0, result2, DELTA);
-        Assert.assertEquals(0.1, result3, DELTA);
-    }
-
-    @Test
-    public void testShouldWorkWhenCommentsCountIsZero() {
-        //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(String.valueOf(i));
-        }
-        when(statistics.usersNames()).thenReturn(list);
-        when(statistics.postsCount()).thenReturn(100);
-        when(statistics.commentsCount()).thenReturn(0);
-        //When
-        statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
-        //Then
-        Assert.assertEquals(1.0, result1, DELTA);
-        Assert.assertEquals(0.0, result2, DELTA);
-        Assert.assertEquals(0.0, result3, DELTA);
-    }
-
-    @Test
-    public void testShouldWorkWhenPostsIsMoreThenComments() {
-        //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            list.add(String.valueOf(i));
-        }
-        when(statistics.usersNames()).thenReturn(list);
-        when(statistics.postsCount()).thenReturn(1000);
-        when(statistics.commentsCount()).thenReturn(100);
-        //When
-        statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
-        //Then
-        Assert.assertEquals(10.0, result1, DELTA);
-        Assert.assertEquals(1.0, result2, DELTA);
-        Assert.assertEquals(0.1, result3, DELTA);
-    }
-
-    @Test
-    public void  testShouldWorkWhenUsersCountIsZero() {
-        //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-
-        when(statistics.usersNames()).thenReturn(list);
+        when(statistics.usersNames()).thenReturn(usersList(0));
         when(statistics.postsCount()).thenReturn(0);
         when(statistics.commentsCount()).thenReturn(0);
         //When
         statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
+        //Than
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenPostsCountIsZeroNumbersOfUsersIsTenCommentsCountIsHundred() {
+        //Given;
+        when(statistics.usersNames()).thenReturn(usersList(10));
+        when(statistics.postsCount()).thenReturn(0);
+        when(statistics.commentsCount()).thenReturn(100);
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(0.0, result1, DELTA);
-        Assert.assertEquals(0.0, result2, DELTA);
-        Assert.assertEquals(0.0, result3, DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(10.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenPostsCountIsZeroNumbersOfUsersIsTenCommentsCountIsZero() {
+        //Given;
+        when(statistics.usersNames()).thenReturn(usersList(10));
+        when(statistics.postsCount()).thenReturn(0);
+        when(statistics.commentsCount()).thenReturn(0);
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenPostsCountIsThousandNumberOfUsersIsHundredCommentsCountIsThousand() {
+        //Given;
+        when(statistics.usersNames()).thenReturn(usersList(100));
+        when(statistics.postsCount()).thenReturn(1000);
+        when(statistics.commentsCount()).thenReturn(1000);
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(10.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(10.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenCommentsCountIsZeroNumberOfUsersIsTenPostCountIsHundred() {
+        //Given
+        when(statistics.usersNames()).thenReturn(usersList(10));
+        when(statistics.postsCount()).thenReturn(100);
+        when(statistics.commentsCount()).thenReturn(0);
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(10.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenPostsIsMoreThenCommentsNumberOfUsersIsThousand() {
+        //Given
+        when(statistics.usersNames()).thenReturn(usersList(1000));
+        when(statistics.postsCount()).thenReturn(1000);
+        when(statistics.commentsCount()).thenReturn(100);
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(1.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(0.1, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.1, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void testWhenPostsIsMoreThenCommentsNumberOfUsersIsHundred() {
+        //Given
+        when(statistics.usersNames()).thenReturn(usersList(100));
+        when(statistics.postsCount()).thenReturn(1000);
+        when(statistics.commentsCount()).thenReturn(100);
+        //When
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(10.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(0.1, statisticsCalculator.getCommentsPerPost(), DELTA);
+    }
+
+    @Test
+    public void  testWhenUsersCountIsZeroPostsCountIsThousandCommentCountIsThousand() {
+        //Given
+        when(statistics.usersNames()).thenReturn(usersList(0));
+        when(statistics.postsCount()).thenReturn(1000);
+        when(statistics.commentsCount()).thenReturn(1000);
+        //When
+        //When
+        statisticsCalculator.calculateAdvStatistics(statistics);
+        //Then
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(0.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getCommentsPerPost(), DELTA);
     }
     @Test
-    public void testShouldWorkWhenUserCountIsHundred() {
+    public void testWhenUserCountIsHundredPostCountIsHundredCommentCountIsHundred() {
         //Given
-        StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
-        Statistics statistics = mock(Statistics.class);
-        List<String> list = new ArrayList<>();
-        for (int i = 1; i <100; i++) {
-            list.add(String.valueOf(i));
-        }
-        when(statistics.usersNames()).thenReturn(list);
+        when(statistics.usersNames()).thenReturn(usersList(100));
         when(statistics.postsCount()).thenReturn(100);
         when(statistics.commentsCount()).thenReturn(100);
         //When
         statisticsCalculator.calculateAdvStatistics(statistics);
-        double result1 = statisticsCalculator.getAverageOfPosts();
-        double result2 = statisticsCalculator.getAverageOfComments();
-        double result3 = statisticsCalculator.getCommentsPerPost();
         //Then
-        Assert.assertEquals(1.0, result1, DELTA);
-        Assert.assertEquals(1.0, result2, DELTA);
-        Assert.assertEquals(1.0, result3, DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getAverageOfPosts(), DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getAverageOfComments(), DELTA);
+        Assert.assertEquals(1.0, statisticsCalculator.getCommentsPerPost(), DELTA);
     }
 }
