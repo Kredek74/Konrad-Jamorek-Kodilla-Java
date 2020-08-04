@@ -19,4 +19,9 @@ public class BookLibrary {
         booklist = resultList;
         return booklist;
     }
+
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
+        List<Book> resultList = libraryDatabase.listBooksInHandsOf(libraryUser);
+        return resultList;
+    }
 }
