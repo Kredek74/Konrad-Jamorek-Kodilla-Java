@@ -8,10 +8,13 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Matchers.notNull;
+import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
+
+    LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+    BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
 
     private List<Book> generateListOfBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
@@ -26,8 +29,7 @@ public class BookDirectoryTestSuite {
     public void testListBooksWithConditionsReturnList() {
 
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+
         List<Book> resultListOfBook = new ArrayList<Book>();
         Book book1 = new Book("Secret of Alamo", "John Smith", 2008);
         Book book2 = new Book("Secretaries and Director", "Dilibert Michigan", 2012);
@@ -43,14 +45,13 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBook = bookLibrary.listBooksWithCondition("Secret");
 
         //Then
-        assertEquals(1, theListOfBook.size());
+        assertEquals(4, theListOfBook.size());
     }
 
     @Test
     public void testListBooksWithConditionsMoreThan20() {
         //Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+
         List<Book> resultOf0Books = new ArrayList<Book>();
         List<Book> resultOf15Books = generateListOfBooks(15);
         List<Book> resultOf40Books = generateListOfBooks(40);
@@ -64,11 +65,19 @@ public class BookDirectoryTestSuite {
         //Then
         assertEquals(0, theListOfBooks0.size());
         assertEquals(15, theListOfBooks15.size());
-        assertEquals(40, theListOfBooks40.size());
+        assertEquals(0, theListOfBooks40.size());
     }
 
     @Test
     public void testListBooksWithConditionsFragmentShorterThan3() {
-        assertTrue(false);
+        //Given
+
+        List<Book> resultListOf10Books = generateListOfBooks(10);
+        when (libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
+        //When
+        List<Book> theListOfBook10 = bookLibrary.listBooksWithCondition("An");
+        //Then
+        assertEquals(0, theListOfBook10.size());
+        verify(libraryDatabaseMock,times(0)).listBooksWithCondition(anyString());
     }
 }
