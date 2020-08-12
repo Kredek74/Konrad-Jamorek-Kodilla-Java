@@ -1,6 +1,7 @@
 package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.Executor;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
@@ -39,5 +40,8 @@ public class StreamMain {
         poemBeautifier.beautify("Java Rules", text ->text.replace("", " ").trim());
         poemBeautifier.beautify("Java Rules", text -> new StringBuilder(text).reverse().toString());
         // I found this method in the javastart.pl course.
+
+        System.out.println("\nUsing Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 }
