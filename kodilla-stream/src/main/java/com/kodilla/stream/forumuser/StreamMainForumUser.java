@@ -1,14 +1,11 @@
-package com.kodilla.stream;
-
-import com.kodilla.stream.forumuser.Forum;
-import com.kodilla.stream.forumuser.ForumUser;
+package com.kodilla.stream.forumuser;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class StreamMain {
+public class StreamMainForumUser {
     public static void main(String[] args) {
 
         List<ForumUser> forumUserList = new Forum().getUserList();
