@@ -1,8 +1,5 @@
 package com.kodilla.stream.alternativeworld;
 
-import com.kodilla.stream.world.Continent;
-import com.kodilla.stream.world.Country;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,14 +19,10 @@ public class AlternativeWorld {
     }
 
     public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = BigDecimal.ZERO;
-        for (AlternativeContinent n : listOfContinents) {
-            for (AlternativeCountry c : n.getListOfCountries()) {
-                BigDecimal quantity = c.getPeopleQuantity();
-                peopleQuantity = peopleQuantity = peopleQuantity.add(quantity);
-            }
-        }
-        return peopleQuantity;
+        return listOfContinents.stream()
+                .flatMap(continent -> continent.getListOfCountries().stream())
+                .map(AlternativeCountry::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
 
 }

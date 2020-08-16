@@ -13,13 +13,9 @@ public class World {
     }
 
     public BigDecimal getPeopleQuantity() {
-        BigDecimal peopleQuantity = BigDecimal.ZERO;
-        for (Continent n : continents) {
-            for (Country c : n.getCountries()) {
-                BigDecimal quantity = c.getPeopleQuantity();
-                peopleQuantity = peopleQuantity = peopleQuantity.add(quantity);
-            }
-        }
-        return peopleQuantity;
+        return continents.stream()
+                .flatMap(continent -> continent.getCountries().stream())
+                .map(Country::getPeopleQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
     }
 }
