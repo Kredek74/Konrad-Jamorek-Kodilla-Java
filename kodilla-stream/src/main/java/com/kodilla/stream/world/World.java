@@ -2,7 +2,6 @@ package com.kodilla.stream.world;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class World {
@@ -13,7 +12,7 @@ public class World {
         continents.add(continent);
     }
 
-    public BigDecimal getPeopleQuantity(){
+    public BigDecimal getPeopleQuantity() {
         BigDecimal peopleQuantity = BigDecimal.ZERO;
         for (Continent n : continents) {
             for (Country c : n.getCountries()) {

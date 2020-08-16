@@ -1,7 +1,8 @@
 package com.kodilla.stream.world;
 
+import com.kodilla.stream.world.Country;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Continent {
