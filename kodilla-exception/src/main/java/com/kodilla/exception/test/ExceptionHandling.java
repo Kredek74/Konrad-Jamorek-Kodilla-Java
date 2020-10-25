@@ -6,8 +6,8 @@ public class ExceptionHandling {
 
         SecondChallenge secondChallenge = new SecondChallenge();
 
-        double x = 3.6;
-        double y = 1.2;
+        double x = 14.0;
+        double y = 3.0;
 
         try {
             System.out.println("We check the assumption " + secondChallenge.probablyIWillThrowException(x, y));

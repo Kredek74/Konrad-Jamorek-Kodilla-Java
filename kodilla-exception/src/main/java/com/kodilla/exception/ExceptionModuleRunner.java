@@ -1,4 +1,4 @@
-package com.kodilla.exception.main;
+package com.kodilla.exception;
 
 import com.kodilla.exception.io.FileReader;
 
