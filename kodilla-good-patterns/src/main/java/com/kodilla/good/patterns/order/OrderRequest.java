@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class OrderRequest {
 
-    User user;
-    Product product;
-    LocalDate orderDate;
-    DeliveryOrder deliveryOrder;
-    int quantity;
+    private User user;
+    private Product product;
+    private LocalDate orderDate;
+    private DeliveryOrder deliveryOrder;
+    private int quantity;
 
     public OrderRequest(User user, Product product, LocalDate orderDate, DeliveryOrder deliveryOrder, int quantity) {
         this.user = user;

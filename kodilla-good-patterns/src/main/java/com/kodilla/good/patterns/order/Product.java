@@ -2,10 +2,10 @@ package com.kodilla.good.patterns.order;
 
 public class Product {
 
-    String productName;
-    int quantityAtStock;
-    boolean availability;
-    double priceProduct;
+    private final String productName;
+    private final int quantityAtStock;
+    private final boolean availability;
+    private final double priceProduct;
 
     public Product(String productName, int quantityAtStock, boolean availability, double priceProduct) {
         this.productName = productName;
@@ -22,7 +22,7 @@ public class Product {
         return quantityAtStock;
     }
 
-    public boolean isAvailability() {
+    public boolean getAvailability() {
         return availability;
     }
 

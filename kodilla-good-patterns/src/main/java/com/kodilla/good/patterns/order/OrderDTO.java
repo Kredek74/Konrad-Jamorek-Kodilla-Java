@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.order;
 
 public class OrderDTO {
 
-    User user;
-    Product product;
-    boolean orderConfirmed;
+    private final User user;
+    private final Product product;
+    private final boolean orderConfirmed;
 
     public OrderDTO(User user, Product product, boolean orderConfirmed) {
         this.user = user;

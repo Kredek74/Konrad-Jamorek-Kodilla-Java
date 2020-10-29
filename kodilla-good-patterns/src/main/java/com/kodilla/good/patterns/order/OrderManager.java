@@ -7,8 +7,8 @@ public class OrderManager implements OrderService {
     @Override
     public boolean order(User user, Product product, LocalDate orderDate, DeliveryOrder deliveryOrder) {
         boolean result;
-        if (product.availability) {
-            System.out.println("We have forwarded your order (" + product.productName + ") to be carried out");
+        if (product.getAvailability()) {
+            System.out.println("We have forwarded your order (" + product.getProductName() + ") to be carried out");
             result = true;
         } else {
             System.out.println("Product is unavailable. We cannot proceed");

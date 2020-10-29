@@ -1,5 +1,7 @@
 package com.kodilla.good.patterns.food2door;
 
+import java.util.Objects;
+
 public class ShopOffer {
 
     private Supplier supplier;
@@ -7,7 +9,7 @@ public class ShopOffer {
     private int availableQuantity;
     private double price;
 
-    public ShopOffer(int availableQuantity) {
+    public ShopOffer() {
         this.supplier = supplier;
         this.product = product;
         this.availableQuantity = availableQuantity;
@@ -39,8 +41,8 @@ public class ShopOffer {
 
         if (availableQuantity != shopOffer.availableQuantity) return false;
         if (Double.compare(shopOffer.price, price) != 0) return false;
-        if (supplier != null ? !supplier.equals(shopOffer.supplier) : shopOffer.supplier != null) return false;
-        return product != null ? product.equals(shopOffer.product) : shopOffer.product == null;
+        if (!Objects.equals(supplier, shopOffer.supplier)) return false;
+        return Objects.equals(product, shopOffer.product);
     }
 
     @Override

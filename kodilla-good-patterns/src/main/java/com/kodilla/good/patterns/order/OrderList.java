@@ -8,9 +8,8 @@ public class OrderList implements OrderRepository {
     public boolean newOrder(User user, Product product, LocalDate orderDate, DeliveryOrder deliveryOrder) {
 
         boolean result;
-        if (product.availability) {
-            result = true;
-        } else {
+        if (product.getAvailability()) result = true;
+        else {
             result = false;
         }
 

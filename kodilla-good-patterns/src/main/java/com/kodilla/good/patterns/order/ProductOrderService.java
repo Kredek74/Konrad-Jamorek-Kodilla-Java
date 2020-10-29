@@ -6,7 +6,7 @@ public class ProductOrderService {
     private OrderService orderService;
     private OrderRepository orderRepository;
 
-    public ProductOrderService(final InformationService informationService, final OrderService orderService, final OrderRepository orderRepository) {
+    public ProductOrderService(InformationService informationService, OrderService orderService, OrderRepository orderRepository) {
         this.informationService = informationService;
         this.orderService = orderService;
         this.orderRepository = orderRepository;

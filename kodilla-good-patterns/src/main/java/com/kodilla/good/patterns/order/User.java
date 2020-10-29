@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.order;
 
 public class User {
 
-    String userNick;
-    String userName;
-    String userSurname;
+    private String userNick;
+    private String userName;
+    private String userSurname;
 
     public User(String userNick, String userName, String userSurname) {
         this.userNick = userNick;
