@@ -9,7 +9,7 @@ public class AlternativeContinent {
     private final String nameOfContinent;
     private final List<AlternativeCountry> listOfCountries = new ArrayList<>();
 
-    public AlternativeContinent(String nameOfContinent, AlternativeCountry...arg) {
+    public AlternativeContinent(String nameOfContinent, AlternativeCountry... arg) {
         this.nameOfContinent = nameOfContinent;
         this.listOfCountries.addAll(Arrays.asList(arg));
     }

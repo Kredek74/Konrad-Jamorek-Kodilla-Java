@@ -10,11 +10,10 @@ public class FlightSearchApplication {
         try {
             if (flightSearch.flightSearching(flight)) {
                 System.out.println("Air Connection is possible");
-            }
-            else {
+            } else {
                 System.out.println("Air Connection is not possible");
             }
-        } catch ( RouteNotFoundException exception) {
+        } catch (RouteNotFoundException exception) {
             System.out.println(exception.getMessage());
         }
     }

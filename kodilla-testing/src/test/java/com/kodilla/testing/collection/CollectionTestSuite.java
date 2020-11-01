@@ -1,6 +1,7 @@
 package com.kodilla.testing.collection;
 
 import org.junit.*;
+
 import java.util.ArrayList;
 
 public class CollectionTestSuite {
@@ -8,27 +9,27 @@ public class CollectionTestSuite {
     public OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
     @Before
-    public void beforTest(){
+    public void beforTest() {
         System.out.println("Collection test case: Begin");
     }
 
     @After
-    public void afterTest(){
+    public void afterTest() {
         System.out.println("Collection Test case: End");
     }
 
     @BeforeClass
-    public static void beforeTestClass(){
+    public static void beforeTestClass() {
         System.out.println("Collection Test Suite: Begin");
     }
 
     @AfterClass
-    public static void afterTestClass(){
+    public static void afterTestClass() {
         System.out.println("Collection Test Suite: End");
     }
 
     @Test
-    public void testEmptyList(){
+    public void testEmptyList() {
 
         //Given
         ArrayList<Integer> emptyList = new ArrayList<Integer>();
@@ -41,7 +42,7 @@ public class CollectionTestSuite {
     }
 
     @Test
-    public void testFullList(){
+    public void testFullList() {
 
         //Given
         ArrayList<Integer> fullListOfNumber = new ArrayList<Integer>();
@@ -54,6 +55,6 @@ public class CollectionTestSuite {
         //Then
         ArrayList<Integer> evenListOfNumbers = new ArrayList<Integer>();
         Integer oddNumber[] = {2, 4, 6, 8, 10};
-        Assert.assertEquals(evenListOfNumbers,resultListOfNumbers);
+        Assert.assertEquals(evenListOfNumbers, resultListOfNumbers);
     }
 }

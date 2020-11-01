@@ -8,12 +8,12 @@ import java.math.BigDecimal;
 public class WorldTestSuite {
 
     @Test
-    public void getPeopleQuantity(){
+    public void getPeopleQuantity() {
         //Given
         Country russia = new Country("Russia", new BigDecimal("146877088"));
         Country germany = new Country("Germany", new BigDecimal("83080010"));
         Country france = new Country("France", new BigDecimal("67431000"));
-        Country poland = new Country("Poland",new BigDecimal("38611020"));
+        Country poland = new Country("Poland", new BigDecimal("38611020"));
         Country china = new Country("China", new BigDecimal("1387160730"));
         Country india = new Country("India", new BigDecimal("1324009090"));
         Country indonesia = new Country("Indonesia", new BigDecimal("25546200"));

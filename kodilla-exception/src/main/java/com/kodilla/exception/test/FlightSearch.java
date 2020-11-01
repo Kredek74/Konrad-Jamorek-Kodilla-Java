@@ -7,7 +7,7 @@ public class FlightSearch {
 
     Map<String, Boolean> mapOfFlights = new HashMap<>();
 
-    public void addAirConnection (String arrivalAirPort, Boolean flightStatus) {
+    public void addAirConnection(String arrivalAirPort, Boolean flightStatus) {
         this.mapOfFlights.put(arrivalAirPort, flightStatus);
     }
 

@@ -2,11 +2,11 @@ package com.kodilla.good.patterns.food2door;
 
 public class LadybirdShop implements OrderService {
 
-    ShopOfferRepository shopOfferDataBase = new ShopOfferRepository();
+    private final ShopOfferRepository shopOfferRepository = new ShopOfferRepository();
 
     @Override
     public void process(OrderRequest orderRequest) {
-        boolean confirmation = shopOfferDataBase.orderExist(orderRequest.getShopOffer());
+        boolean confirmation = shopOfferRepository.orderExist(orderRequest.getShopOffer());
         if (confirmation) {
             double price = orderRequest.getQuantity() * orderRequest.getShopOffer().getPrice();
             System.out.println("Wartosc Twojego zamowienia: " + orderRequest.getShopOffer().getProduct() + "\n" + "wynosi: "

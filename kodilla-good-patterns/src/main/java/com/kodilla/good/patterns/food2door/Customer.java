@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.food2door;
 
 public class Customer {
 
-    String userName;
-    String deliveryAddress;
+    private String userName;
+    private String deliveryAddress;
 
     public Customer(String userName, String deliveryAddress) {
         this.userName = userName;

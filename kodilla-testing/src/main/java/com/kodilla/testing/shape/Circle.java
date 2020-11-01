@@ -2,7 +2,7 @@ package com.kodilla.testing.shape;
 
 import java.util.Objects;
 
-public class Circle implements Shape{
+public class Circle implements Shape {
 
     private double circleRadius;
 
@@ -39,6 +39,6 @@ public class Circle implements Shape{
 
     @Override
     public String toString() {
-        return  getShapeName() + " (" + circleRadius + ")";
+        return getShapeName() + " (" + circleRadius + ")";
     }
 }

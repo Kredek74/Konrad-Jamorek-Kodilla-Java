@@ -17,7 +17,7 @@ public class ProductOrderService {
         boolean orderConfirmed = orderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate(), orderRequest.getDeliveryOrder());
         if (orderConfirmed) {
             informationService.informUser(orderRequest.getUser());
-            orderRepository.newOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate(),orderRequest.getDeliveryOrder());
+            orderRepository.newOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate(), orderRequest.getDeliveryOrder());
             return new OrderDTO(orderRequest.getUser(), orderRequest.getProduct(), true);
         } else {
             return new OrderDTO(orderRequest.getUser(), orderRequest.getProduct(), false);

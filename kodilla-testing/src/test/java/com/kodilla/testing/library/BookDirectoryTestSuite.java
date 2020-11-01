@@ -42,6 +42,7 @@ public class BookDirectoryTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
+
     @After
     public void afterEveryTest() {
         System.out.println("Test #" + testCounter + " its done");
@@ -95,12 +96,12 @@ public class BookDirectoryTestSuite {
         //Given
 
         List<Book> resultListOf10Books = generateListOfNBooks(10);
-        when (libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
+        when(libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf10Books);
         //When
         List<Book> theListOfBook10 = bookLibrary.listBooksWithCondition("An");
         //Then
         assertEquals(0, theListOfBook10.size());
-        verify(libraryDatabaseMock,times(0)).listBooksWithCondition(anyString());
+        verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
     //Tests for task 6.6

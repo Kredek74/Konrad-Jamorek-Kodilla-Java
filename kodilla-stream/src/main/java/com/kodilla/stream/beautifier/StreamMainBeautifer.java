@@ -11,7 +11,7 @@ public class StreamMainBeautifer {
         poemBeautifier.beautify("Java Rules", text -> text.toUpperCase());
         poemBeautifier.beautify("Java Rules", text -> text.toLowerCase());
         poemBeautifier.beautify("Java Rules", text -> text.replaceAll("a", "@"));
-        poemBeautifier.beautify("Java Rules", text ->text.replace("", " ").trim());
+        poemBeautifier.beautify("Java Rules", text -> text.replace("", " ").trim());
         poemBeautifier.beautify("Java Rules", text -> new StringBuilder(text).reverse().toString());
     }
 }

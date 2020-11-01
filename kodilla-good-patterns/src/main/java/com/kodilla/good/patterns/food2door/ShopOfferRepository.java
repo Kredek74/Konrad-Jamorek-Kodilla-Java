@@ -5,24 +5,28 @@ import java.util.List;
 
 public class ShopOfferRepository {
 
-    List<ShopOffer>shopOfferList = new ArrayList<>();
+    List<ShopOffer> shopOfferList = new ArrayList<>();
     ProductRepository productRepository = new ProductRepository();
     List<Product> productList = productRepository.addProduct();
     SupplierRepository supplierRepository = new SupplierRepository();
     List<Supplier> supplierList = supplierRepository.addSupplier();
 
-    public ShopOfferRepository() {
 
-        shopOfferList.add(new ShopOffer(100));
-        shopOfferList.add(new ShopOffer(40));
-        shopOfferList.add(new ShopOffer(10));
-        shopOfferList.add(new ShopOffer(14));
-        shopOfferList.add(new ShopOffer(10));
-        shopOfferList.add(new ShopOffer(50));
-        shopOfferList.add(new ShopOffer(500));
-        shopOfferList.add(new ShopOffer(5));
-        shopOfferList.add(new ShopOffer(7));
-        shopOfferList.add(new ShopOffer(22));
+    public List<ShopOffer> addShopOffer() {
+
+        shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(0), 30, 3.99));
+        shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(2), 40, 3.00));
+        shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(3), 10, 6.99));
+        shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(5), 14, 25.19));
+        shopOfferList.add(new ShopOffer(supplierList.get(1), productList.get(0), 10, 4.49));
+        shopOfferList.add(new ShopOffer(supplierList.get(1), productList.get(2), 50, 3.29));
+        shopOfferList.add(new ShopOffer(supplierList.get(1), productList.get(4), 500, 3.49));
+        shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(1), 5, 32.49));
+        shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(2), 7, 2.80));
+        shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(5), 22, 18.88));
+
+        return shopOfferList;
+
     }
 
     public boolean orderExist(ShopOffer shopOffer) {

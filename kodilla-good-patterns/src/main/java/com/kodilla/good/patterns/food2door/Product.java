@@ -2,8 +2,8 @@ package com.kodilla.good.patterns.food2door;
 
 public class Product {
 
-    String productName;
-    String type;
+    private final String productName;
+    private final String type;
 
     public Product(String productName, String type) {
         this.productName = productName;

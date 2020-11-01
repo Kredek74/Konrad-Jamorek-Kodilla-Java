@@ -5,12 +5,12 @@ import java.util.List;
 
 public class SupplierRepository {
 
-    final List<Supplier> supplierList = new ArrayList<>();
+    final List<Supplier> supplierRepository = new ArrayList<>();
 
     public List<Supplier> addSupplier() {
-        supplierList.add(new Supplier("DinoShop", "Opoczno"));
-        supplierList.add(new Supplier("LadybirdShop", "Ogonowice"));
-        supplierList.add(new Supplier("FrogShop", "Żarnów"));
-        return supplierList;
+        supplierRepository.add(new Supplier("DinoShop", "Opoczno"));
+        supplierRepository.add(new Supplier("LadybirdShop", "Ogonowice"));
+        supplierRepository.add(new Supplier("FrogShop", "Żarnów"));
+        return supplierRepository;
     }
 }

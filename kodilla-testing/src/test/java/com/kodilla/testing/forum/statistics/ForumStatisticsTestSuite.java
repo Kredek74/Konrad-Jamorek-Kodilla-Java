@@ -39,6 +39,7 @@ public class ForumStatisticsTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
+
     @After
     public void afterEveryTest() {
         System.out.println("Test #" + testCounter + " its done");
@@ -144,7 +145,7 @@ public class ForumStatisticsTestSuite {
     }
 
     @Test
-    public void  testWhenUsersCountIsZeroPostsCountIsThousandCommentCountIsThousand() {
+    public void testWhenUsersCountIsZeroPostsCountIsThousandCommentCountIsThousand() {
         //Given
         when(statistics.usersNames()).thenReturn(usersList(0));
         when(statistics.postsCount()).thenReturn(1000);
@@ -157,6 +158,7 @@ public class ForumStatisticsTestSuite {
         Assert.assertEquals(0.0, statisticsCalculator.getAverageOfComments(), DELTA);
         Assert.assertEquals(1.0, statisticsCalculator.getCommentsPerPost(), DELTA);
     }
+
     @Test
     public void testWhenUserCountIsHundredPostCountIsHundredCommentCountIsHundred() {
         //Given

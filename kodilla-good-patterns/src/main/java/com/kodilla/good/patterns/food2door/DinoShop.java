@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.food2door;
 
-import java.util.List;
-
 public class DinoShop implements OrderService {
 
     Customer customer;

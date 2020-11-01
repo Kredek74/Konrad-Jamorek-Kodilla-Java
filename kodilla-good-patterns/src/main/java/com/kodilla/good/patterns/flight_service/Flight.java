@@ -56,6 +56,6 @@ public class Flight {
 
     @Override
     public String toString() {
-        return "Flight from "+  departureCity + "[" + departureTime + "] to " + arrivalCity + "[" + arrivalTime + "]";
+        return "Flight from " + departureCity + "[" + departureTime + "] to " + arrivalCity + "[" + arrivalTime + "]";
     }
 }

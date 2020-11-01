@@ -2,9 +2,9 @@ package com.kodilla.good.patterns.food2door;
 
 public class OrderRequest {
 
-    Customer customer;
-    ShopOffer shopOffer;
-    int quantity;
+    private final Customer customer;
+    private final ShopOffer shopOffer;
+    private final int quantity;
 
     public OrderRequest(Customer customer, ShopOffer shopOffer, int quantity) {
         this.customer = customer;

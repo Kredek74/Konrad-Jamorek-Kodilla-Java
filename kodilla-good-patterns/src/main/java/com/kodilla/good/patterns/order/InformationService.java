@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.order;
 
-public interface InformationService  {
+public interface InformationService {
 
     void informUser(User user);
 }

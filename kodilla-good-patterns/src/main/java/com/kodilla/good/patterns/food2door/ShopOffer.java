@@ -4,12 +4,12 @@ import java.util.Objects;
 
 public class ShopOffer {
 
-    private Supplier supplier;
-    private Product product;
-    private int availableQuantity;
-    private double price;
+    private final Supplier supplier;
+    private final Product product;
+    private final int availableQuantity;
+    private final double price;
 
-    public ShopOffer() {
+    public ShopOffer(Supplier supplier, Product product, int availableQuantity, double price) {
         this.supplier = supplier;
         this.product = product;
         this.availableQuantity = availableQuantity;
