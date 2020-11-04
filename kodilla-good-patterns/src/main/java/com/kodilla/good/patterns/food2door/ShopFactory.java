@@ -10,8 +10,8 @@ public class ShopFactory {
                 return new LadybirdShop();
             case "FrogShop":
                 return new FrogShop();
+            default:
+                throw new IllegalStateException("Unexpected value: " + supplier.getSupplierName());
         }
-
-        return null;
     }
 }

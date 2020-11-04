@@ -11,15 +11,13 @@ public class Supplier {
     }
 
     public String getSupplierName() {
+        final String supplierName = this.supplierName;
         return supplierName;
-    }
-
-    public String getSupplierCity() {
-        return supplierCity;
     }
 
     @Override
     public String toString() {
         return supplierName;
     }
+
 }

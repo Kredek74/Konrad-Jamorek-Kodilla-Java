@@ -56,4 +56,14 @@ public class ShopOffer {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "ShopOffer{" +
+                "supplier=" + supplier +
+                ", product=" + product +
+                ", availableQuantity=" + availableQuantity +
+                ", price=" + price +
+                '}';
+    }
 }

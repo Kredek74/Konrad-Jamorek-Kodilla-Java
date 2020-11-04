@@ -18,4 +18,11 @@ public class LadybirdShop implements OrderService {
             System.out.println("Dostepna ilosc: " + orderRequest.getShopOffer().getAvailableQuantity());
         }
     }
+
+    @Override
+    public String toString() {
+        return "LadybirdShop{" +
+                "shopOfferRepository=" + shopOfferRepository +
+                '}';
+    }
 }

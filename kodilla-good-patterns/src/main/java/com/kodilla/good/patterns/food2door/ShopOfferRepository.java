@@ -12,7 +12,7 @@ public class ShopOfferRepository {
     List<Supplier> supplierList = supplierRepository.addSupplier();
 
 
-    public List<ShopOffer> addShopOffer() {
+    public  List<ShopOffer> addShopOffer() {
 
         shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(0), 30, 3.99));
         shopOfferList.add(new ShopOffer(supplierList.get(0), productList.get(2), 40, 3.00));
@@ -24,9 +24,7 @@ public class ShopOfferRepository {
         shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(1), 5, 32.49));
         shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(2), 7, 2.80));
         shopOfferList.add(new ShopOffer(supplierList.get(2), productList.get(5), 22, 18.88));
-
         return shopOfferList;
-
     }
 
     public boolean orderExist(ShopOffer shopOffer) {

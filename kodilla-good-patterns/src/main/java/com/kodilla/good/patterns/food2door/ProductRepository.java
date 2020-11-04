@@ -19,4 +19,11 @@ public class ProductRepository {
         productRepository.add(new Product("Kajzerka pszenna", "Pieczywo"));
         return productRepository;
     }
+
+    @Override
+    public String toString() {
+        return "ProductRepository{" +
+                "productRepository=" + productRepository +
+                '}';
+    }
 }

@@ -15,4 +15,11 @@ public class FrogShop implements OrderService {
             System.out.println("Niestety nie mozemy zrealizowac zamowienia. Prosimy o jego ponowne zlozenie, uwzględniając dostepnosc produktu.");
         }
     }
+
+    @Override
+    public String toString() {
+        return "FrogShop{" +
+                "shopOfferRepository=" + shopOfferRepository +
+                '}';
+    }
 }

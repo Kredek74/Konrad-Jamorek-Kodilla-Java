@@ -13,4 +13,11 @@ public class SupplierRepository {
         supplierRepository.add(new Supplier("FrogShop", "Żarnów"));
         return supplierRepository;
     }
+
+    @Override
+    public String toString() {
+        return "SupplierRepository{" +
+                "supplierRepository=" + supplierRepository +
+                '}';
+    }
 }

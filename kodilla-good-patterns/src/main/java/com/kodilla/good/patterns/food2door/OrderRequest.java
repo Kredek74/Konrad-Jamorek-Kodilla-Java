@@ -23,4 +23,13 @@ public class OrderRequest {
     public int getQuantity() {
         return quantity;
     }
+
+    @Override
+    public String toString() {
+        return "OrderRequest{" +
+                "customer=" + customer +
+                ", shopOffer=" + shopOffer +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

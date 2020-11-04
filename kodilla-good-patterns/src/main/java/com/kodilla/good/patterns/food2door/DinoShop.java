@@ -18,4 +18,12 @@ public class DinoShop implements OrderService {
             System.out.println("Niestety, produkt jest niedostępny lub jest niedostepny w deklarowanej przez Ciebie ilosci.");
         }
     }
+
+    @Override
+    public String toString() {
+        return "DinoShop{" +
+                "customer=" + customer +
+                ", shopOfferRepository=" + shopOfferRepository +
+                '}';
+    }
 }
