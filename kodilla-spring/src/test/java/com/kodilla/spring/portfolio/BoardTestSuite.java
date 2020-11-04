@@ -32,15 +32,23 @@ public class BoardTestSuite {
     @Test
     public void testTaskAdd() {
         //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
-        Board board = context.getBean(Board.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.portfolio");
         //When
+        Board board = context.getBean(Board.class);
         board.getToDoList().getTasksList().add("Task 1 is in ToDoList");
         board.getInProgressList().getTasksList().add("Task 2 is in InProgressList");
         board.getDoneList().getTasksList().add("Task 3 is in DoneList");
         //Then
-        Assert.assertEquals("Task 1 is in ToDoList", board.getToDoList().getTasksList().get(0));
-        Assert.assertEquals("Task 2 is in InProgressList", board.getInProgressList().getTasksList().get(0));
-        Assert.assertEquals("Task 3 is in DoneList", board.getDoneList().getTasksList().get(0));
+        board.display();
+    }
+
+    @Test
+    public void testExists() {
+        //Given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.portfolio");
+        //When
+        boolean listsExist = context.containsBean("toDo") && context.containsBean("inProgress") && context.containsBean("done");
+        //Then
+        System.out.println("All list was created: " + listsExist);
     }
 }
