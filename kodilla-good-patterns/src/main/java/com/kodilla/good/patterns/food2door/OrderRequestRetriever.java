@@ -8,7 +8,7 @@ public class OrderRequestRetriever {
     List<ShopOffer> shopOfferDBList = shopOfferRepository.addShopOffer();
 
     public OrderRequest orderRequestRetriever() {
-        Customer sampleCustomer = new Customer("Konrad", "Opoczno, ul. Akacjowa 56");
+        Customer sampleCustomer = new Customer("Konrad", "Opoczno, ul. Piotrkowska 2");
         ShopOffer sampleOrder = shopOfferDBList.get(2);
         int sampleQuantity = 5;
         return new OrderRequest(sampleCustomer, sampleOrder, sampleQuantity);
