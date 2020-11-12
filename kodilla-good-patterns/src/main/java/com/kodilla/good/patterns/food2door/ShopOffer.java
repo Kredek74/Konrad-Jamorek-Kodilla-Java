@@ -1,19 +1,15 @@
 package com.kodilla.good.patterns.food2door;
 
-import java.util.Objects;
-
 public class ShopOffer {
 
     private final Supplier supplier;
     private final Product product;
-    private final int availableQuantity;
-    private final double price;
 
-    public ShopOffer(Supplier supplier, Product product, int availableQuantity, double price) {
+
+    public ShopOffer(Supplier supplier, Product product) {
         this.supplier = supplier;
         this.product = product;
-        this.availableQuantity = availableQuantity;
-        this.price = price;
+
     }
 
     public Supplier getSupplier() {
@@ -24,14 +20,6 @@ public class ShopOffer {
         return product;
     }
 
-    public int getAvailableQuantity() {
-        return availableQuantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -39,21 +27,14 @@ public class ShopOffer {
 
         ShopOffer shopOffer = (ShopOffer) o;
 
-        if (availableQuantity != shopOffer.availableQuantity) return false;
-        if (Double.compare(shopOffer.price, price) != 0) return false;
-        if (!Objects.equals(supplier, shopOffer.supplier)) return false;
-        return Objects.equals(product, shopOffer.product);
+        if (supplier != null ? !supplier.equals(shopOffer.supplier) : shopOffer.supplier != null) return false;
+        return product != null ? product.equals(shopOffer.product) : shopOffer.product == null;
     }
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = supplier != null ? supplier.hashCode() : 0;
+        int result = supplier != null ? supplier.hashCode() : 0;
         result = 31 * result + (product != null ? product.hashCode() : 0);
-        result = 31 * result + availableQuantity;
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
@@ -62,8 +43,6 @@ public class ShopOffer {
         return "ShopOffer{" +
                 "supplier=" + supplier +
                 ", product=" + product +
-                ", availableQuantity=" + availableQuantity +
-                ", price=" + price +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ public class ApplicationFood2door {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.orderRequestRetriever();
 
-        Warehouse warehouse = new Warehouse();
+        OrderProcess warehouse = new OrderProcess();
         warehouse.process(orderRequest);
     }
 }

@@ -4,12 +4,12 @@ public class OrderRequest {
 
     private final Customer customer;
     private final ShopOffer shopOffer;
-    private final int quantity;
+    private final int orderQuantity;
 
     public OrderRequest(Customer customer, ShopOffer shopOffer, int quantity) {
         this.customer = customer;
         this.shopOffer = shopOffer;
-        this.quantity = quantity;
+        this.orderQuantity = quantity;
     }
 
     public Customer getCustomer() {
@@ -20,8 +20,8 @@ public class OrderRequest {
         return shopOffer;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getOrderQuantity() {
+        return orderQuantity;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class OrderRequest {
         return "OrderRequest{" +
                 "customer=" + customer +
                 ", shopOffer=" + shopOffer +
-                ", quantity=" + quantity +
+                ", quantity=" + orderQuantity +
                 '}';
     }
 }

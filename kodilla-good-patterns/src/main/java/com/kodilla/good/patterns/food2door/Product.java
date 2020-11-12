@@ -3,26 +3,21 @@ package com.kodilla.good.patterns.food2door;
 public class Product {
 
     private final String productName;
-    private final String type;
+    private final int productQuantity;
+    private final double productPrice;
 
-    public Product(String productName, String type) {
+    public Product(String productName, int productQuantity, double productPrice) {
         this.productName = productName;
-        this.type = type;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public String getType() {
-        return type;
+        this.productQuantity = productQuantity;
+        this.productPrice = productPrice;
     }
 
     @Override
     public String toString() {
         return "Product{" +
                 "productName='" + productName + '\'' +
-                ", type='" + type + '\'' +
+                ", productQuantity=" + productQuantity +
+                ", productPrice=" + productPrice +
                 '}';
     }
 }

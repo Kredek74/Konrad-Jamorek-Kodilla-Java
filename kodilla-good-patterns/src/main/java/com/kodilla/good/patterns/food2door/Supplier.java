@@ -10,11 +10,6 @@ public class Supplier {
         this.supplierCity = supplierCity;
     }
 
-    public String getSupplierName() {
-        final String supplierName = this.supplierName;
-        return supplierName;
-    }
-
     @Override
     public String toString() {
         return supplierName;

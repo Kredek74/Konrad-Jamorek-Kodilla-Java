@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.food2door;
 
-public class Warehouse {
+public class OrderProcess {
 
     public void process(OrderRequest orderRequest) throws Exception {
         OrderService orderService = ShopFactory.getShop(orderRequest.getShopOffer().getSupplier());

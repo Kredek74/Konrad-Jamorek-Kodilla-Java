@@ -7,17 +7,20 @@ public class ProductRepository {
 
     final List<Product> productRepository = new ArrayList<>();
 
-    public List<Product> addProduct() {
+    public ProductRepository() {
 
-        productRepository.add(new Product("Mleko 3,2%", "Nabiał"));
-        productRepository.add(new Product("Ser Gouda", "Nabiał"));
-        productRepository.add(new Product("Pietruszka naciowa", "Warzywa i Owoce"));
-        productRepository.add(new Product("Jabłka Lobo", "Warzywa i Owoce"));
-        productRepository.add(new Product("Kiełbasa wiejska", "Mięso i Wędliny"));
-        productRepository.add(new Product("Golonka wieprzowa", "Mięso i Wędliny"));
-        productRepository.add(new Product("Chleb żytni", "Pieczywo"));
-        productRepository.add(new Product("Kajzerka pszenna", "Pieczywo"));
-        return productRepository;
+        productRepository.add(new Product("Mleko 3,2%", 30, 3.99));
+        productRepository.add(new Product("Mleko sojowe", 20, 5.59));
+        productRepository.add(new Product("Mleko kozie", 38, 4.99));
+        productRepository.add(new Product("Jabłka Lobo", 25, 2.99));
+        productRepository.add(new Product("Jarmuż", 14, 8.29));
+        productRepository.add(new Product("Banan", 125, 3.39));
+        productRepository.add(new Product("Kiełbasa wiejska", 37, 18.99));
+        productRepository.add(new Product("Golonka wieprzowa", 11, 24.99));
+        productRepository.add(new Product("Kiełbasa drobiowa", 8,22.19));
+        productRepository.add(new Product("Chleb żytni", 11, 3.79));
+        productRepository.add(new Product("Kajzerka pszenna", 34, 0.79));
+        productRepository.add(new Product("Chleb Ciabata", 4, 6.89));
     }
 
     @Override

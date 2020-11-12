@@ -2,20 +2,12 @@ package com.kodilla.good.patterns.food2door;
 
 public class Customer {
 
-    private String userName;
-    private String deliveryAddress;
+    private final String userName;
+    private final String deliveryAddress;
 
     public Customer(String userName, String deliveryAddress) {
         this.userName = userName;
         this.deliveryAddress = deliveryAddress;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getDeliveryAddress() {
-        return deliveryAddress;
     }
 
     @Override
