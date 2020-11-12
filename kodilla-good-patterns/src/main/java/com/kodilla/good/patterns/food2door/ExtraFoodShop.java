@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.food2door;
 
-public class DinoShop implements OrderService {
+public class ExtraFoodShop implements OrderService {
 
     Customer customer;
     ShopOfferRepository shopOfferRepository = new ShopOfferRepository();

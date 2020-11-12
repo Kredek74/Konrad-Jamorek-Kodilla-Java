@@ -12,6 +12,18 @@ public class Product {
         this.productPrice = productPrice;
     }
 
+    public String getProductName() {
+        return productName;
+    }
+
+    public int getProductQuantity() {
+        return productQuantity;
+    }
+
+    public double getProductPrice() {
+        return productPrice;
+    }
+
     @Override
     public String toString() {
         return "Product{" +

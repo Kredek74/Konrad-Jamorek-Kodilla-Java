@@ -5,6 +5,9 @@ import java.util.List;
 
 public class ShopOfferRepository {
 
+
+    private ShopOffer shopOffer;
+
     List<ShopOffer> shopOfferList = new ArrayList<>();
     SupplierRepository supplierRepository = new SupplierRepository();
     List<Supplier> supplierList = supplierRepository.addSupplier();

@@ -1,12 +1,12 @@
 package com.kodilla.good.patterns.food2door;
 
-public class FrogShop implements OrderService {
+public class HealthyShop implements OrderService {
 
     private final ShopOfferRepository shopOfferRepository = new ShopOfferRepository();
 
     @Override
     public void process(OrderRequest orderRequest) {
-        System.out.println("Witamy w FrogShop. Dziekujemy za skorzystanie z oferty naszego sklepu. Zapewniamy najswiezsza produkty w przystepnych cenach.");
+        System.out.println("Witamy w HealthyShop. Dziekujemy za skorzystanie z oferty naszego sklepu. Zapewniamy najswiezsza produkty w przystepnych cenach.");
         boolean result = shopOfferRepository.orderExist(orderRequest.getShopOffer());
         if (result) {
             System.out.println("Dziekujemy za zlozenie zamowienia: " + orderRequest.getShopOffer().getProduct());
