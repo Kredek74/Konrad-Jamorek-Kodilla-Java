@@ -1,29 +1,16 @@
 package com.kodilla.good.patterns.food2door;
 
-public class ExtraFoodShop implements OrderService {
+public class ExtraFoodShop extends Producer {
 
-    Customer customer;
-    ShopOfferRepository shopOfferRepository = new ShopOfferRepository();
+    private static final String NAME = "ExtraFoodShop";
 
-    @Override
-    public void process(OrderRequest orderRequest) {
-        customer = orderRequest.getCustomer();
-        System.out.println("Witaj " + customer + "!");
-        System.out.println("Dziękujemy za zaufania, jakim darzysz nasą firmę.");
-        boolean result = shopOfferRepository.orderExist(orderRequest.getShopOffer());
-        if (result) {
-            System.out.println("Twoje zamowienie:" + "\n" + orderRequest.getShopOffer().getProduct() + " - "
-                    + orderRequest.getQuantity() + "szt. zostalo przekazane do realizacji.");
-        } else {
-            System.out.println("Niestety, produkt jest niedostępny lub jest niedostepny w deklarowanej przez Ciebie ilosci.");
-        }
+    public ExtraFoodShop() {
+        super(NAME);
     }
 
     @Override
-    public String toString() {
-        return "DinoShop{" +
-                "customer=" + customer +
-                ", shopOfferRepository=" + shopOfferRepository +
-                '}';
+    public boolean process() {
+        System.out.println("Przetwarzasz zamówienie do " + NAME + " i sprawdzasz dostępność.");
+        return true;
     }
 }

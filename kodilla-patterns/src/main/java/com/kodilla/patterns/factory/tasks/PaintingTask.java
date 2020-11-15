@@ -1,36 +1,13 @@
 package com.kodilla.patterns.factory.tasks;
 
-import static com.kodilla.patterns.factory.tasks.TaskStatus.EXECUTED;
-import static com.kodilla.patterns.factory.tasks.TaskStatus.NOT_EXECUTED;
+public class PaintingTask extends TaskForm {
 
-public final class PaintingTask implements Task {
-    private final String taskName;
-    private final String color;
-    private final String whatToPaint;
-    private TaskStatus taskStatus = NOT_EXECUTED;
+    private String color;
+    private String whatToPaint;
 
-    public PaintingTask(final String taskName, final String color, final String whatToPaint) {
-        this.taskName = taskName;
+    public PaintingTask(String taskName, String color, String whatToPaint) {
+        super(taskName);
         this.color = color;
         this.whatToPaint = whatToPaint;
-    }
-
-    @Override
-    public void executeTask() {
-        if (color.equals("Pink") && whatToPaint.equals("Toilet")) {
-            taskStatus = EXECUTED;
-        } else {
-            taskStatus = NOT_EXECUTED;
-        }
-    }
-
-    @Override
-    public String getTaskName() {
-        return taskName;
-    }
-
-    @Override
-    public boolean isTaskExecuted() {
-        return taskStatus == EXECUTED;
     }
 }
